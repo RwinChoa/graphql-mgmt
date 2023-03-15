@@ -11,7 +11,12 @@ const port = process.env.PORT || 5000;
 const app = express();
 connectDB()
 
-app.use('/graphql', graphqlHTTP({
+const corsOptions = {
+    origin: 'http://vercel.app',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+
+app.use('/graphql', cors(corsOptions), graphqlHTTP({
     schema,
     graphiql: process.env.NODE_ENV === 'development'
 }))
