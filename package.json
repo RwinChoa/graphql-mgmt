@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/index.js",
     "dev": "nodemon server/index.js",
-    "build": "react-scripts build --prefix client"
+    "vercel-build": "npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
